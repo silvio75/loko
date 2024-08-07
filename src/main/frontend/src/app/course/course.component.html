@@ -1,0 +1,41 @@
+<!-- course.component.html -->
+<form (ngSubmit)="onSubmit()">
+  <label for="destination">Où voulez-vous aller ?</label>
+  <select id="destination" [(ngModel)]="form.destination" name="destination">
+    <option value="default">Où voulez-vous aller ?</option>
+    <option value="current">Votre position</option>
+    <option value="address">Sélection de l'adresse</option>
+  </select>
+
+  <label for="time">Quand ?</label>
+  <select id="time" [(ngModel)]="form.time" name="time">
+    <option value="now">Maintenant</option>
+    <option value="select">Sélectionner</option>
+  </select>
+
+  <div *ngIf="form.time === 'select'">
+    <!-- Google Maps Integration -->
+    <div id="map"></div>
+  </div>
+
+  <div>
+    <p>Qui participera à la course ?</p>
+    <input type="checkbox" [(ngModel)]="form.isForOther" name="isForOther"> Autre personne choisie
+    <div *ngIf="form.isForOther">
+      <h3>Personne qui voyage</h3>
+      <label for="phone">Téléphone</label>
+      <input type="text" id="phone" [(ngModel)]="form.phone" name="phone">
+      <label for="firstName">Prénom</label>
+      <input type="text" id="firstName" [(ngModel)]="form.firstName" name="firstName">
+    </div>
+  </div>
+
+
+  <label for="carType">Type de voiture</label>
+  <select id="carType" [(ngModel)]="form.carType" name="carType">
+    <option value="economy">Économique</option>
+    <option value="comfort">Confort Plus</option>
+  </select>
+
+  <button type="submit">Commander</button>
+</form>

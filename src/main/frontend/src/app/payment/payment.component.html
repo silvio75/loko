@@ -1,0 +1,8 @@
+<!-- payment.component.html -->
+<form (ngSubmit)="onSubmit()">
+  <button type="button" (click)="selectPayment('mobileMoney')">Mobile Money</button>
+  <button type="button" (click)="selectPayment('cash')">Espèce</button>
+  <button type="button" (click)="selectPayment('prepaidAccount')">Compte Prépayé</button>
+
+  <button type="submit">Valider</button>
+</form>
